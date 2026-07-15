@@ -18,10 +18,13 @@ ${custom.jj}\
 $line_break\
 $character"""
 
+command_timeout = 3000
+
 [custom.jj]
 command = "starship-jj --ignore-working-copy starship prompt"
-when = true
-command_timeout = 3000
+when = "jj root --ignore-working-copy"
+format = "[$output]($style) "
+style = "purple"
 
 [rust]
 format = "via [$symbol$version]($style) "

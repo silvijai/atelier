@@ -8,12 +8,16 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Homebrew rustup is keg-only.
-export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
-
+# Mise-managed language runtimes and project tools.
 eval "$(mise activate zsh)"
+
+# Homebrew rustup is keg-only. The actual toolchains live in ~/.cargo/bin.
+export PATH="$HOME/.cargo/bin:/opt/homebrew/opt/rustup/bin:$PATH"
+
+# Prompt
 eval "$(starship init zsh)"
 
+# Familiar short commands
 alias g="git"
 alias j="jj"
 alias v="nvim"
@@ -21,18 +25,38 @@ alias ll="eza -lah --group-directories-first"
 alias lt='eza --tree --level=3 --icons'
 
 # Extra completion definitions
-if type brew &>/dev/null; then
+if (( $+commands[brew] )); then
   FPATH="$(brew --prefix)/share/zsh-completions:${FPATH}"
 fi
 
 autoload -Uz compinit
 compinit
 
-# Ghost-text suggestions as you type
+# Persistent, shared, de-duplicated history.
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
+setopt append_history
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_reduce_blanks
+setopt inc_append_history
+
+# Up/Down search history commands beginning with the text you typed.
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey -M emacs "$terminfo[kcuu1]" up-line-or-beginning-search
+bindkey -M emacs "$terminfo[kcud1]" down-line-or-beginning-search
+bindkey -M emacs '^[[A' up-line-or-beginning-search
+bindkey -M emacs '^[[B' down-line-or-beginning-search
+bindkey -M emacs '^[OA' up-line-or-beginning-search
+bindkey -M emacs '^[OB' down-line-or-beginning-search
+
+# FZF completion and Ctrl-R history finder.
+source <(fzf --zsh)
+
+# Lighter ghost text only. Your accepted/recalled text remains normal foreground.
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245,italic'
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
-# Up/Down arrow matches history by prefix
-source "$(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down

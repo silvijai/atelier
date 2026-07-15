@@ -16,6 +16,7 @@ brew "starship"
 brew "fzf"
 brew "zsh-autosuggestions"
 brew "zsh-history-substring-search"
+brew "zsh-syntax-highlighting"
 brew "zoxide"
 brew "ripgrep"
 brew "fd"
@@ -38,6 +39,7 @@ brew "dotnet"
 
 # Version control and editors
 brew "jujutsu"
+brew "jjui"
 brew "neovim"
 brew "tree-sitter-cli"
 
