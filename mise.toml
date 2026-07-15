@@ -1,3 +1,10 @@
+[tools]
+node = "24"
+python = "3.13"
+rust = "stable"
+bun = "latest"
+java = "21"
+
 [tasks.preview]
 description = "Preview Chezmoi-managed configuration changes"
 run = "chezmoi apply --dry-run --verbose"

@@ -31,4 +31,26 @@
     "diagnostics": false,
     "metrics": false,
   },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": { "command": "clippy" },
+        "cargo": { "buildScripts": { "enable": false } },
+        "procMacro": { "enable": false },
+        "cachePriming": { "numThreads": 2 },
+      },
+    },
+    "nil": {
+      "initialization_options": {
+        "formatting": { "command": ["alejandra"] },
+      },
+    },
+    "eslint": {
+      "settings": {
+        "codeActionOnSave": {
+          "source.fixAll.eslint": true,
+        },
+      },
+    },
+  },
 }

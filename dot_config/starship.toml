@@ -21,6 +21,7 @@ $character"""
 [custom.jj]
 command = "starship-jj --ignore-working-copy starship prompt"
 when = true
+command_timeout = 3000
 
 [rust]
 format = "via [$symbol$version]($style) "
