@@ -1,0 +1,10 @@
+[settings]
+idiomatic_version_file_enable_tools = ["node", "python"]
+
+[tools]
+node = "lts"
+python = "3.13"
+
+[env]
+EDITOR = "nvim"
+VISUAL = "nvim"

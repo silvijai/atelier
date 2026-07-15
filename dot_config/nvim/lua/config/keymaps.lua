@@ -1,0 +1,18 @@
+local map = vim.keymap.set
+
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+map("n", "<C-n>", ":Neotree toggle<CR>", { desc = "Toggle Explorer" })
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
+map("n", "<leader>w", ":w<CR>", { desc = "Save" })
+map("n", "<leader>q", ":q<CR>", { desc = "Quit" })
+map("n", "<leader>n", ":nohlsearch<CR>", { desc = "Clear search" })
+map("n", "<leader>do", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
+map("n", "<leader>dd", "<cmd>Telescope diagnostics<CR>", { desc = "All diagnostics" })

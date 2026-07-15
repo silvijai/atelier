@@ -1,0 +1,39 @@
+[tasks.preview]
+description = "Preview Chezmoi-managed configuration changes"
+run = "chezmoi apply --dry-run --verbose"
+
+[tasks.diff]
+description = "Show changes between managed files and this machine"
+run = "chezmoi diff"
+
+[tasks.config]
+description = "Apply Chezmoi-managed configuration"
+run = "chezmoi apply --verbose"
+
+[tasks.packages]
+description = "Install Brewfile packages"
+run = "brew bundle --file ./Brewfile"
+
+[tasks.apply]
+description = "Apply dotfiles, then install packages"
+run = """
+chezmoi apply --verbose
+brew bundle --file ./Brewfile
+"""
+
+[tasks.status]
+description = "Show configuration drift and missing Brewfile packages"
+run = """
+chezmoi diff || true
+brew bundle check --file ./Brewfile || true
+"""
+
+[tasks.upgrade]
+description = "Deliberately update Homebrew formulae and casks"
+confirm = "Upgrade Homebrew formulae and casks?"
+run = """
+brew update
+brew upgrade
+brew upgrade --cask
+brew cleanup
+"""

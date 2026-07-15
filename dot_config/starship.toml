@@ -1,0 +1,39 @@
+add_newline = true
+
+[character]
+error_symbol = "[➜](bold red)"
+success_symbol = "[➜](bold green)"
+
+[directory]
+truncate_to_repo = true
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+disabled = true
+
+format = """
+$all\
+${custom.jj}\
+$line_break\
+$character"""
+
+[custom.jj]
+command = "starship-jj --ignore-working-copy starship prompt"
+when = true
+
+[rust]
+format = "via [$symbol$version]($style) "
+symbol = " "
+style = "bold red"
+
+[cmd_duration]
+min_time = 2000
+format = "took [$duration]($style) "
+style = "yellow bold"
+
+[memory_usage]
+disabled = false
+threshold = 70
+format = "via $symbol[${ram}]($style) "
+style = "bold dimmed white"

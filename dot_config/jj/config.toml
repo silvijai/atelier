@@ -1,0 +1,11 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Silvija Ivanovaite"
+email = "silvija@silvija.site"
+
+[signing]
+backend = "gpg"
+sign-all = true
+behavior = "own"
+key = "B0CAFE10B5859696"

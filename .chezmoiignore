@@ -1,0 +1,27 @@
+# Never manage application state, caches, or plugin installations
+.config/nvim/lazy/
+.local/share/nvim/
+.cache/nvim/
+.local/state/nvim/
+
+# Zed application state and local workspace data
+.config/zed/workspaces/
+.config/zed/db/
+.config/zed/logs/
+.config/zed/extensions/
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Shell completion cache
+.zcompdump*
+.zcompcache*
+
+# Secrets and machine-local overrides
+.env
+.env.*
+*.local
+*.local.*
+*.secret
+*.secrets

@@ -1,0 +1,38 @@
+setopt interactivecomments
+
+export EDITOR="nvim"
+export VISUAL="nvim"
+export GPG_TTY="$(tty)"
+
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# Homebrew rustup is keg-only.
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+
+eval "$(mise activate zsh)"
+eval "$(starship init zsh)"
+
+alias g="git"
+alias j="jj"
+alias v="nvim"
+alias ll="eza -lah --group-directories-first"
+alias lt='eza --tree --level=3 --icons'
+
+# Extra completion definitions
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh-completions:${FPATH}"
+fi
+
+autoload -Uz compinit
+compinit
+
+# Ghost-text suggestions as you type
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245,italic'
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+# Up/Down arrow matches history by prefix
+source "$(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down

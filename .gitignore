@@ -1,0 +1,37 @@
+# macOS Finder metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor state
+.zed/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Neovim runtime / plugin state
+dot_config/nvim/lazy-lock.json
+dot_config/nvim/.luarc.json
+
+# Local/private machine overrides
+*.local
+*.local.*
+*.secret
+*.secrets
+.env
+.env.*
+!.env.example
+
+# Generated logs and temporary files
+*.log
+tmp/
+temp/
+
+# Mise local state, if created in this repo
+.mise.local.toml
+mise.local.toml

@@ -1,0 +1,14 @@
+[
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space g j": [
+        "task::Spawn",
+        {
+          "task_name": "JJUI",
+          "reveal_target": "center"
+        }
+      ]
+    }
+  }
+]

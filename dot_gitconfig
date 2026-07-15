@@ -1,0 +1,13 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Silvija Ivanovaite
+	email = silvija@silvija.site
+	signingkey = B0CAFE10B5859696
+[commit]
+	gpgsign = false
+[gpg]
+	program = gpg

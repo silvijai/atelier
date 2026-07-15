@@ -1,0 +1,18 @@
+[
+  {
+    "label": "JJUI",
+    "command": "jjui",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "reveal_target": "center",
+    "hide": "never",
+    "env": {
+      "EDITOR": "zed -w",
+      "VISUAL": "zed -w"
+    },
+    "shell": {
+      "program": "/bin/zsh"
+    }
+  }
+]

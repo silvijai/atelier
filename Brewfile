@@ -1,0 +1,30 @@
+brew "chezmoi"
+brew "mise"
+
+brew "git"
+brew "jujutsu"
+brew "jq"
+
+brew "gnupg"
+brew "pinentry-mac"
+
+brew "neovim"
+brew "tree-sitter-cli"
+brew "tmux"
+brew "starship"
+brew "zsh-completions"
+brew "zsh-autosuggestions"
+brew "zsh-history-substring-search"
+brew "ripgrep"
+brew "fd"
+brew "eza"
+brew "bat"
+brew "fzf"
+brew "zoxide"
+
+brew "uv"
+brew "rustup"
+
+cask "kitty"
+cask "zed"
+cask "font-jetbrains-mono-nerd-font"
