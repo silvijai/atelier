@@ -4,6 +4,8 @@ python = "3.13"
 rust = "stable"
 bun = "latest"
 java = "21"
+chezmoi = "2.71.0"
+starship = "latest"
 
 [tasks.preview]
 description = "Preview Chezmoi-managed configuration changes"
@@ -13,30 +15,51 @@ run = "chezmoi apply --dry-run --verbose"
 description = "Show changes between managed files and this machine"
 run = "chezmoi diff"
 
-[tasks.config]
-description = "Apply Chezmoi-managed configuration"
+[tasks.apply]
+description = "Apply Chezmoi-managed configuration (cross-platform)"
 run = "chezmoi apply --verbose"
 
-[tasks.packages]
-description = "Install Brewfile packages"
-run = "brew bundle --file ./Brewfile"
-
-[tasks.apply]
-description = "Apply dotfiles, then install packages"
+[tasks.apply_macos]
+description = "Apply dotfiles, then install Brewfile packages (macOS only)"
 run = """
 chezmoi apply --verbose
 brew bundle --file ./Brewfile
 """
 
-[tasks.status]
-description = "Show configuration drift and missing Brewfile packages"
+[tasks.packages_macos]
+description = "Install Brewfile packages (macOS)"
+run = "brew bundle --file ./Brewfile"
+
+[tasks.packages_fedora]
+description = "Install Fedora packages from Linuxfile.toml"
+run = """
+python - <<'PY' >/tmp/atelier-fedora-packages.txt
+import tomllib
+
+with open("Linuxfile.toml", "rb") as f:
+    data = tomllib.load(f)
+
+packages = data["common"]["packages"]
+mapping = data.get("fedora", {}).get("package_map", {})
+resolved = [mapping.get(pkg, pkg) for pkg in packages]
+
+for pkg in resolved:
+    print(pkg)
+PY
+
+sudo dnf group install development-tools
+sudo dnf install -y --skip-unavailable $(tr '\n' ' ' </tmp/atelier-fedora-packages.txt)
+"""
+
+[tasks.status_macos]
+description = "Show configuration drift and missing Brewfile packages (macOS)"
 run = """
 chezmoi diff || true
 brew bundle check --file ./Brewfile || true
 """
 
-[tasks.upgrade]
-description = "Deliberately update Homebrew formulae and casks"
+[tasks.upgrade_macos]
+description = "Deliberately update Homebrew formulae and casks (macOS)"
 confirm = "Upgrade Homebrew formulae and casks?"
 run = """
 brew update

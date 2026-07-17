@@ -1,0 +1,25 @@
+[common]
+packages = [
+  "chezmoi",
+  "mise",
+  "git",
+  "zsh",
+  "gnupg",
+  "pinentry",
+  "fzf",
+  "ripgrep",
+  "tmux",
+  "cmake",
+  "cppcheck",
+  "pkgconf",
+  "ffmpeg",
+  "just",
+  "neovim",
+  "jq",
+  "qemu",
+  "avrdude",
+  "xpra",
+]
+
+[fedora]
+package_map = { fd = "fd-find" }

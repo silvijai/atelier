@@ -41,3 +41,7 @@ disabled = false
 threshold = 70
 format = "via $symbol[${ram}]($style) "
 style = "bold dimmed white"
+
+[hostname]
+ssh_only = true
+format = "[($hostname)](bold blue) "

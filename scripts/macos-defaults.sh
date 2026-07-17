@@ -25,6 +25,9 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 mkdir -p "$HOME/Pictures/Screenshots"
 defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
 
+# Turn off system audio volume, like boot sounds
+sudo nvram SystemAudioVolume=%80
+
 # Spaces and login screen
 defaults write com.apple.spaces spans-displays -bool false
 sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false

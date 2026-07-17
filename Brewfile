@@ -1,6 +1,7 @@
 # Taps
 tap "osx-cross/avr"
 tap "LargeModGames/spotatui"
+tap "slp/krun"
 
 # Core configuration
 brew "chezmoi"
@@ -23,6 +24,9 @@ brew "fd"
 brew "eza"
 brew "bat"
 brew "tmux"
+brew "htop"
+brew "lima"
+brew "krunkit"
 
 # Native build and media dependencies
 brew "cmake"
@@ -36,6 +40,7 @@ brew "wakeonlan"
 
 # .NET
 brew "dotnet"
+brew "dotnet@8"
 
 # Version control and editors
 brew "jujutsu"
@@ -68,6 +73,7 @@ cask "obsidian"
 cask "protonvpn"
 cask "proton-pass"
 cask "cryptomator"
+cask "xpra"
 
 # Mac App Store
 mas "Amphetamine", id: 937984704
