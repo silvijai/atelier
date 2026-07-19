@@ -8,4 +8,3 @@ email = "silvija@silvija.site"
 backend = "gpg"
 sign-all = true
 behavior = "own"
-key = "B0CAFE10B5859696"

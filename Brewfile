@@ -1,7 +1,5 @@
 # Taps
-tap "osx-cross/avr"
-tap "LargeModGames/spotatui"
-tap "slp/krun"
+tap "libkrun/krun"
 
 # Core configuration
 brew "chezmoi"
@@ -11,6 +9,7 @@ brew "zsh"
 brew "zsh-completions"
 brew "gnupg"
 brew "pinentry"
+brew "pinentry-mac"
 
 # Shell and terminal tools
 brew "starship"
@@ -26,7 +25,9 @@ brew "bat"
 brew "tmux"
 brew "htop"
 brew "lima"
-brew "krunkit"
+brew "libkrun/krun/gvproxy"
+brew "libkrun/krun/krunkit"
+brew "sccache"
 
 # Native build and media dependencies
 brew "cmake"
@@ -42,6 +43,10 @@ brew "wakeonlan"
 brew "dotnet"
 brew "dotnet@8"
 
+# Dlang
+brew "ldc"
+brew "dub"
+
 # Version control and editors
 brew "jujutsu"
 brew "jjui"
@@ -54,17 +59,11 @@ brew "jq"
 brew "qemu"
 brew "mas"
 
-# AVR / embedded
-brew "avra"
-brew "avrdude"
-brew "avr-gcc"
-brew "sdl2"
-brew "spotatui"
-
 # Desktop applications presently in use
 cask "karabiner-elements"
 cask "kitty"
 cask "zed"
+cask "zen"
 cask "utm"
 cask "docker-desktop"
 cask "raycast"
@@ -72,8 +71,22 @@ cask "loop"
 cask "obsidian"
 cask "protonvpn"
 cask "proton-pass"
+cask "proton-mail"
+cask "proton-drive"
+cask "proton-mail-bridge"
+cask "ticktick"
 cask "cryptomator"
 cask "xpra"
+cask "affinity"
+cask "aldente"
+cask "font-jetbrains-mono-nerd-font"
+cask "roblox"
+cask "vesktop"
+cask "tigervnc"
+cask "spotify"
+brew "spicetify-cli"
+cask "github"
+cask "mos@beta"
 
 # Mac App Store
 mas "Amphetamine", id: 937984704
@@ -82,3 +95,4 @@ mas "Pure Paste", id: 1611378436
 mas "Displaperture", id: 1543920362
 mas "Command X", id: 6448461551
 mas "DaVinci Resolve", id: 571213070
+mas "Xcode", id: 497799835
