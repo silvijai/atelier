@@ -87,6 +87,7 @@ cask "spotify"
 brew "spicetify-cli"
 cask "github"
 cask "mos@beta"
+cask "steam"
 
 # Mac App Store
 mas "Amphetamine", id: 937984704
